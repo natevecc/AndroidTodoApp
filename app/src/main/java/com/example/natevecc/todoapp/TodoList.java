@@ -51,6 +51,15 @@ public class TodoList extends Activity implements View.OnClickListener{
         if(newTodo != null && newTodo.length() > 0) {
             this.adapter.add(newTodo);
         }
+
+        this.todoListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                ArrayAdapter<String> adapter = (ArrayAdapter<String>)adapterView.getAdapter();
+                adapter.remove(adapter.getItem(position));
+            }
+        });
     }
 
 

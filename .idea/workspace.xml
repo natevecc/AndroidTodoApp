@@ -23,14 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d4dad36-2518-4376-8120-edcf84e2340b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/natevecc/todoapp/AddTodo.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_todo.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/menu/add_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/add_todo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/natevecc/todoapp/TodoList.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/natevecc/todoapp/TodoList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_todo_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_todo_list.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/todo_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/todo_list.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TodoApp.iws" />
@@ -57,10 +50,12 @@
       <file leaf-file-name="TodoList.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/natevecc/todoapp/TodoList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.030927835" vertical-offset="60" max-vertical-offset="1155">
-              <caret line="18" column="70" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
+            <state vertical-scroll-proportion="0.83505154" vertical-offset="390" max-vertical-offset="1290">
+              <caret line="66" column="50" selection-start-line="66" selection-start-column="50" selection-end-line="66" selection-end-column="50" />
               <folding>
                 <element signature="e#1168#1176#0" expanded="true" />
+                <element signature="e#1637#1977#0" expanded="true" />
+                <element signature="e#1966#1967#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1359,6 +1354,8 @@
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="e#1168#1176#0" expanded="true" />
+            <element signature="e#1637#1977#0" expanded="true" />
+            <element signature="e#1966#1967#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1380,6 +1377,8 @@
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="e#1168#1176#0" expanded="true" />
+            <element signature="e#1637#1977#0" expanded="true" />
+            <element signature="e#1966#1967#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1401,6 +1400,8 @@
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="e#1168#1176#0" expanded="true" />
+            <element signature="e#1637#1977#0" expanded="true" />
+            <element signature="e#1966#1967#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1422,6 +1423,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#1168#1176#0" expanded="true" />
+            <element signature="e#1637#1977#0" expanded="true" />
+            <element signature="e#1966#1967#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1517,10 +1520,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/natevecc/todoapp/TodoList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.030927835" vertical-offset="60" max-vertical-offset="1155">
-          <caret line="18" column="70" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
+        <state vertical-scroll-proportion="0.83505154" vertical-offset="390" max-vertical-offset="1290">
+          <caret line="66" column="50" selection-start-line="66" selection-start-column="50" selection-end-line="66" selection-end-column="50" />
           <folding>
             <element signature="e#1168#1176#0" expanded="true" />
+            <element signature="e#1637#1977#0" expanded="true" />
+            <element signature="e#1966#1967#0" expanded="true" />
           </folding>
         </state>
       </provider>
