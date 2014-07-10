@@ -4,13 +4,23 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 
-public class TodoList extends Activity {
+
+public class TodoList extends Activity implements View.OnClickListener {
 
     private ListView todoListView;
+    private EditText input;
+    private Button inputButton;
+    private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,22 +28,35 @@ public class TodoList extends Activity {
         setContentView(R.layout.activity_todo_list);
 
         this.todoListView = (ListView) findViewById(R.id.todoList);
+        this.input = (EditText) findViewById(R.id.input);
+        this.inputButton = (Button) findViewById(R.id.button);
 
         String[] values = new String[] {
-                "Android List View",
-                "Adapter implementation",
-                "Simple List View In Android",
-                "Create List View Android",
-                "Android Example",
-                "List View Source Code",
-                "List View Array Adapter",
-                "Android Example List View"
+                "Wake up",
+                "Go To work",
+                "Build things",
+                "Test things",
+                "Build Android app",
+                "get groceries",
+                "make dinner",
+                "sleep"
         };
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, values);
+        final ArrayList<String> todos = new ArrayList<String>(Arrays.asList(values));
+
+        this.adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, android.R.id.text1, todos);
 
         this.todoListView.setAdapter(adapter);
+        this.inputButton.setOnClickListener(this);
+        this.todoListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                ArrayAdapter<String> adapter = (ArrayAdapter<String>)adapterView.getAdapter();
+                adapter.remove(adapter.getItem(position));
+            }
+        });
     }
 
 
@@ -54,5 +77,13 @@ public class TodoList extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(this.inputButton.isPressed() && this.input.getText().length() > 0) {
+            this.adapter.add(this.input.getText().toString());
+            this.input.setText(null);
+        }
     }
 }
