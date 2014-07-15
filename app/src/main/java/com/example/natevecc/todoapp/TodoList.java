@@ -27,9 +27,9 @@ public class TodoList extends Activity implements View.OnClickListener{
 
         this.todoListView = (ListView) findViewById(R.id.todoList);
 
-        final ArrayList<Todo> todos = new ArrayList<Todo>();
-
-        this.adapter = new TodoAdapter(this, todos);
+        if(this.adapter == null) {
+            this.adapter = new TodoAdapter(this, new ArrayList<Todo>());
+        }
 
         this.todoListView.setAdapter(adapter);
 
@@ -72,7 +72,7 @@ public class TodoList extends Activity implements View.OnClickListener{
         if (id == R.id.add_todo) {
             Intent intent = new Intent(this, AddTodo.class);
             // Start activity
-            startActivity(intent);
+            this.startActivity(intent);
             // Finish this activity
             this.finish();
         }

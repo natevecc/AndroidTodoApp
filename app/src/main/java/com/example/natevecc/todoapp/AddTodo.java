@@ -52,7 +52,7 @@ public class AddTodo extends Activity implements View.OnClickListener {
             Intent intent = new Intent(this, TodoList.class);
             intent.putExtra("title", this.title.getText().toString());
             intent.putExtra("description", this.description.getText().toString());
-            startActivity(intent);
+            this.startActivity(intent);
             this.finish();
             this.title.setText(null);
         }
