@@ -9,11 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.natevecc.todoapp.R;
-
 public class AddTodo extends Activity implements View.OnClickListener {
 
-    private EditText input;
+    private EditText title;
+    private EditText description;
     private Button inputButton;
 
     @Override
@@ -21,7 +20,8 @@ public class AddTodo extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_todo);
 
-        this.input = (EditText)this.findViewById(R.id.editText);
+        this.title = (EditText)this.findViewById(R.id.editText);
+        this.description = (EditText)this.findViewById(R.id.editText2);
         this.inputButton = (Button)this.findViewById(R.id.button);
         this.inputButton.setOnClickListener(this);
     }
@@ -48,12 +48,13 @@ public class AddTodo extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        if(this.inputButton.isPressed() && this.input.getText().length() > 0) {
+        if(this.inputButton.isPressed() && this.title.getText().length() > 0) {
             Intent intent = new Intent(this, TodoList.class);
-            intent.putExtra("todo", this.input.getText().toString());
+            intent.putExtra("title", this.title.getText().toString());
+            intent.putExtra("description", this.description.getText().toString());
             startActivity(intent);
             this.finish();
-            this.input.setText(null);
+            this.title.setText(null);
         }
     }
 }

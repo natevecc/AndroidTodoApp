@@ -34,10 +34,11 @@ public class TodoList extends Activity implements View.OnClickListener{
         this.todoListView.setAdapter(adapter);
 
         Intent intent = this.getIntent();
-        if(intent.getStringExtra("id") != null) {
-            Date createdAt = new Date(intent.getStringExtra("createdAt"));
+        if(intent.getStringExtra("title") != null) {
+            Date createdAt = new Date();
+            long id = this.adapter.getCount();
             Todo newTodo = new Todo(
-                    (long) this.adapter.getCount(),
+                    id,
                     intent.getStringExtra("title"),
                     intent.getStringExtra("description"),
                     createdAt);
