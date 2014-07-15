@@ -8,18 +8,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 
 public class TodoList extends Activity implements View.OnClickListener{
 
     private ListView todoListView;
-    private ArrayAdapter<String> adapter;
+    private TodoAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,27 +27,20 @@ public class TodoList extends Activity implements View.OnClickListener{
 
         this.todoListView = (ListView) findViewById(R.id.todoList);
 
-        String[] values = new String[] {
-                "Wake up",
-                "Go To work",
-                "Build things",
-                "Test things",
-                "Build Android app",
-                "get groceries",
-                "make dinner",
-                "sleep"
-        };
+        final ArrayList<Todo> todos = new ArrayList<Todo>();
 
-        final ArrayList<String> todos = new ArrayList<String>(Arrays.asList(values));
-
-        this.adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, todos);
+        this.adapter = new TodoAdapter(this, todos);
 
         this.todoListView.setAdapter(adapter);
 
         Intent intent = this.getIntent();
-        String newTodo = intent.getStringExtra("todo");
-        if(newTodo != null && newTodo.length() > 0) {
+        if(intent.getStringExtra("id") != null) {
+            Date createdAt = new Date(intent.getStringExtra("createdAt"));
+            Todo newTodo = new Todo(
+                    (long) this.adapter.getCount(),
+                    intent.getStringExtra("title"),
+                    intent.getStringExtra("description"),
+                    createdAt);
             this.adapter.add(newTodo);
         }
 

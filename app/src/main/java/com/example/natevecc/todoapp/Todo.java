@@ -1,6 +1,6 @@
 package com.example.natevecc.todoapp;
 
-import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by natevecc on 7/15/14.
@@ -8,8 +8,15 @@ import java.util.Calendar;
 public class Todo {
     long id;
     String title;
-    String Description;
-    Calendar createdAt;
+    String description;
+    Date createdAt;
+
+    public Todo(long id, String title, String description, Date createdAt) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.createdAt = createdAt;
+    }
 
     public long getId() {
         return this.id;
@@ -28,18 +35,18 @@ public class Todo {
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
-    public Calendar getCreatedAt() {
+    public Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Calendar createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 }

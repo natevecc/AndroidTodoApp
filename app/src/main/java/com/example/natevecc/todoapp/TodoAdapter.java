@@ -19,10 +19,10 @@ public class TodoAdapter extends BaseAdapter {
     private ArrayList<Todo> todos;
     private static LayoutInflater inflater=null;
 
-    public TodoAdapter(Activity activity, ArrayList<Todo> todo) {
-        activity = activity;
-        todos = todos;
-        inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    public TodoAdapter(Activity activity, ArrayList<Todo> todos) {
+        this.activity = activity;
+        this.todos = todos;
+        this.inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
@@ -57,5 +57,9 @@ public class TodoAdapter extends BaseAdapter {
         created.setText(todo.getCreatedAt().toString());
         description.setText(todo.getDescription());
         return vi;
+    }
+
+    public void add(Todo todo) {
+        this.todos.add(todo);
     }
 }
