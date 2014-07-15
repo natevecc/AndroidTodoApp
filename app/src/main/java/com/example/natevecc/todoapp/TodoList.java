@@ -1,6 +1,7 @@
 package com.example.natevecc.todoapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,11 +16,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
-public class TodoList extends Activity implements View.OnClickListener {
+public class TodoList extends Activity implements View.OnClickListener{
 
     private ListView todoListView;
-    private EditText input;
-    private Button inputButton;
     private ArrayAdapter<String> adapter;
 
     @Override
@@ -28,8 +27,6 @@ public class TodoList extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_todo_list);
 
         this.todoListView = (ListView) findViewById(R.id.todoList);
-        this.input = (EditText) findViewById(R.id.input);
-        this.inputButton = (Button) findViewById(R.id.button);
 
         String[] values = new String[] {
                 "Wake up",
@@ -48,7 +45,13 @@ public class TodoList extends Activity implements View.OnClickListener {
                 android.R.layout.simple_list_item_1, android.R.id.text1, todos);
 
         this.todoListView.setAdapter(adapter);
-        this.inputButton.setOnClickListener(this);
+
+        Intent intent = this.getIntent();
+        String newTodo = intent.getStringExtra("todo");
+        if(newTodo != null && newTodo.length() > 0) {
+            this.adapter.add(newTodo);
+        }
+
         this.todoListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -73,17 +76,18 @@ public class TodoList extends Activity implements View.OnClickListener {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.add_todo) {
+            Intent intent = new Intent(this, AddTodo.class);
+            // Start activity
+            startActivity(intent);
+            // Finish this activity
+            this.finish();
         }
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onClick(View view) {
-        if(this.inputButton.isPressed() && this.input.getText().length() > 0) {
-            this.adapter.add(this.input.getText().toString());
-            this.input.setText(null);
-        }
+
     }
 }
